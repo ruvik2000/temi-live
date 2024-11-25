@@ -16,67 +16,6 @@ const Contact = () => {
           CONTACT
         </h1>
         <div className="flex flex-col md:flex-row py-10 items-center justify-between max-sm:gap-y-10">
-          <form
-            action={async (formData) => {
-              const { data, error } = await sendEmail(formData);
-
-              if (error) {
-                toast.error(error);
-                return;
-              }
-
-              toast.success("Email sent successfully!");
-            }}
-            className="gap-3 grid grid-cols-1 md:grid-cols-2 flex-1 w-full"
-          >
-            <input
-              type="text"
-              name="senderName"
-              placeholder="NAME"
-              autoComplete="new-name"
-              className="input col-span-2"
-            />
-            <select
-              name="senderState"
-              className="input font-thin uppercase py-3 cursor-pointer col-span-2"
-            >
-              {stateOptions.map((item, index) => (
-                <React.Fragment key={index}>
-                  <option value={item.value} className="mt-2">
-                    {item.name}
-                  </option>
-                </React.Fragment>
-              ))}
-            </select>
-            <input
-              type="email"
-              name="senderEmail"
-              placeholder="EMAIL"
-              autoComplete="new-password"
-              className="input col-span-2 md:col-span-1"
-            />
-            <input
-              type="tel"
-              name="senderTel"
-              placeholder="PHONE"
-              autoComplete="new-password"
-              className="input col-span-2 md:col-span-1"
-            />
-            <input
-              type="text"
-              name="subject"
-              placeholder="SUBJECT"
-              autoComplete="new-password"
-              className="input col-span-2"
-            />
-            <textarea
-              placeholder="MESSAGE"
-              name="message"
-              rows={10}
-              className="input col-span-2"
-            ></textarea>
-            <SubmitButton />
-          </form>
           <div className="flex-1 h-full space-y-5">
             <div className="flex items-center gap-x-3 w-[300px] mx-auto">
               <LuMapPin className="text-2xl" />
